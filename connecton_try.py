@@ -17,17 +17,19 @@ try:
         #cursor = connection.cursor()
 
         #create table
-        with connection.cursor() as cursor:
+        '''with connection.cursor() as cursor:
             create_table_querry = "CREATE TABLE `name_table`(id int AUTO_INCREMENT," \
                                   " name VARCHAR(32), " \
                                   "password VARCHAR(32), " \
                                   "mail VARCHAR(32), PRIMARY KEY (id));"
             cursor.execute(create_table_querry)
-            print('table created')
+            print('table created')'''
 
         #insert data
         with connection.cursor() as cursor:
-            insert_querry = "INSERT INTO name_table "
+            insert_querry = "INSERT INTO `name_table` (name, password, mail) VALUES ('Me', 'password', 'ubabuba');"
+            cursor.execute(insert_querry)
+            connection.commit()
     finally:
         connection.close()
 except Exception as ex:
