@@ -27,10 +27,17 @@ try:
         ''
 
         #insert data
-        with connection.cursor() as cursor:
+        '''with connection.cursor() as cursor:
             insert_querry = "INSERT INTO `name_table` (name, password, mail) VALUES ('Me', 'password', 'ubabuba');"
             cursor.execute(insert_querry)
-            connection.commit()
+            connection.commit()'''
+        #select all data from table
+        with connection.cursor() as cursor:
+            select_all = "SELECT * FROM `name_table`"
+            cursor.execute(select_all)
+            rows = cursor.fetchall()
+            for row in rows:
+                print(row)
     finally:
         connection.close()
 except Exception as ex:
