@@ -24,6 +24,7 @@ try:
                                   "mail VARCHAR(32), PRIMARY KEY (id));"
             cursor.execute(create_table_querry)
             print('table created')'''
+        ''
 
         #insert data
         with connection.cursor() as cursor:
